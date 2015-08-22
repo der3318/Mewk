@@ -1,14 +1,20 @@
-# HackNtu_MEWK
+# HackNTU_Mewk
 
 
 ## About
 
 * An App platform for making good use of waste material
 
+* `Mewk` is a concept of giving out something that you don't need for free
+
+* `Browse` enables you to find some useful items that are available
+
+
 
 ## Team
 
-* •x§j∏Í§uB03°uM E W K°v
+* Âè∞Â§ßË≥áÂ∑•B03„ÄåMoris Eilse Wade Kevin„Äç
+
 
 
 ## Environment
