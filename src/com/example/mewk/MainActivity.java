@@ -12,8 +12,12 @@ import com.parse.ParseQuery;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -48,7 +52,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
 		dialog.setTitle("About Us");
 		String content = new String("Mewk, a HackNTU App\n\n");
-		content = content + "Members:\n    簡瑋德\n    Elise Cheng\n    張以白\n    李鈺昇"; 
+		content = content + "Members:\n    簡瑋德\n    Elise Cheng\n    張以白\n    李鈺昇";
+		dialog.setPositiveButton("Home Page", new Dialog.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whitch) {
+				Uri uri = Uri.parse("http://www.csie.ntu.edu.tw/~b03902015/index.html");
+				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+				startActivity(intent);
+			}
+		});
 		dialog.setMessage(content);
 		dialog.show();
 	}
