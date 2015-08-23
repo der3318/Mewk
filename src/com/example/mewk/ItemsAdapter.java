@@ -27,7 +27,7 @@ public class ItemsAdapter extends ArrayAdapter<ItemData> {
        TextView tvTime = (TextView) convertView.findViewById(R.id.timeleft);
        // Populate the data into the template view using the data object
        tvItem.setText(item.itemname);
-       tvTime.setText(item.deadline);
+       tvTime.setText(item.deadline + ", at " + item.location);
        // Return the completed view to render on screen
        return convertView;
    }

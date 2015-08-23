@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -122,8 +123,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		 */
 		private static final String ARG_SECTION_NUMBER = "section_number";
 		private static int number;
-		private EditText username, phone, mail, itemname, description, day, hour, location;
-		private Button mewk;
+		private EditText username, phone, mail, itemname, description, day, hour, location, edt_search;
+		private Button mewk, btn_search;
 		private ListView l_results;
 		private TextView t_results;
 		private ArrayList<ItemData> items;
@@ -144,6 +145,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 			if(number == 2) {
 				l_results = (ListView)rootView.findViewById(R.id.listView_results);
 				t_results = (TextView)rootView.findViewById(R.id.textView_results);
+				edt_search = (EditText)rootView.findViewById(R.id.edt_search);
+				btn_search = (Button)rootView.findViewById(R.id.btn_search);
 			}
 			if(number == 3) { 
 				username = (EditText)rootView.findViewById(R.id.username);
@@ -158,14 +161,20 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 			}
 		}
 		
-		public void setListeners() {
+		public void setListeners(final View rootView) {
+			if(number == 2)	btn_search.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					show( rootView, true, edt_search.getText().toString() );
+				}
+			});
 			if(number == 3)	mewk.setOnClickListener( new MewkListener( username, phone, mail, itemname, description, day, hour, location, this) );
 		}
 		
-		public void show(final View rootView) {
+		public void show(final View rootView, boolean flag, String key) {
 			if(number != 2)	return;
 			ParseQuery<ParseObject> query_browse = ParseQuery.getQuery("Thing");
 			query_browse.orderByAscending("deadline");
+			if(flag)	query_browse.whereStartsWith("itemname", key);
 			query_browse.findInBackground(new FindCallback<ParseObject>() {
 				public void done(List<ParseObject> objects, ParseException e) {
 					if (e == null) {
@@ -200,8 +209,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 			if(number == 2)	rootView = inflater.inflate(R.layout.fragment_view, container, false);
 			if(number == 3)	rootView = inflater.inflate(R.layout.fragment_give, container, false);
 			findViews(rootView);
-			show(rootView);
-			setListeners();
+			show( rootView, false, new String("") );
+			setListeners(rootView);
 			return rootView;
 		}
 		

@@ -45,18 +45,20 @@ public final class R {
         public static final int viewbg=0x7f02000e;
     }
     public static final class id {
-        public static final int action_example=0x7f08001b;
-        public static final int action_settings=0x7f08001a;
-        public static final int button_return=0x7f080018;
+        public static final int action_example=0x7f08001d;
+        public static final int action_settings=0x7f08001c;
+        public static final int btn_search=0x7f080017;
+        public static final int button_return=0x7f08001a;
         public static final int container=0x7f080001;
         public static final int day=0x7f080009;
         public static final int description=0x7f080007;
         public static final int drawer_layout=0x7f080000;
+        public static final int edt_search=0x7f080016;
         public static final int hour=0x7f08000a;
         public static final int imageView1=0x7f080014;
         public static final int imageView2=0x7f080015;
         public static final int itemname=0x7f080005;
-        public static final int listView_results=0x7f080017;
+        public static final int listView_results=0x7f080019;
         public static final int location=0x7f080012;
         public static final int mail=0x7f080010;
         public static final int mewk=0x7f080013;
@@ -70,8 +72,8 @@ public final class R {
         public static final int textView5=0x7f08000d;
         public static final int textView6=0x7f08000f;
         public static final int textView7=0x7f080011;
-        public static final int textView_results=0x7f080016;
-        public static final int timeleft=0x7f080019;
+        public static final int textView_results=0x7f080018;
+        public static final int timeleft=0x7f08001b;
         public static final int username=0x7f08000c;
     }
     public static final class layout {
